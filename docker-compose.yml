@@ -4,8 +4,12 @@ services:
     depends_on:
       - db
     env_file: .env.docker
+    command: bundle exec rails s -b '0.0.0.0'
+    ports:
+      - 3000:3000
     volumes:
       - .:/ruby-vagas
+
   db:
     image: postgres:16
     env_file: .env.docker
